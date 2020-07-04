@@ -9,7 +9,7 @@
             @endforeach   
             
         </div>
-        <div class="card-body">
+        <div class="card-body bg-secondary">
             <form action="/jawaban/{{$id}}" method="POST">
             @csrf
                 <input type="text" class="form-control mb-2 mr-sm-2" placeholder="Enter Nama" id="name" name="name">
@@ -21,6 +21,7 @@
         </div>     
       <!-- /.card-header -->
       <div class="card-body">
+        
      
         <table id="example1" class="table table-bordered table-striped">
           <thead>
@@ -37,7 +38,9 @@
             <td>{{$key+1}}</td>
             <td>{{$data->name}}</td>
             <td>{{$data->answer}}</td>
-            <td>X</td>
+            <td>
+              <a href="/jawaban/edit/{{$data->id}}	"><button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button></a>
+              <a href="/jawaban/delete/{{$data->question_id}}/{{$data->id}}	"><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></a></td>
           </tr>
           @endforeach
           </tbody>
@@ -54,6 +57,8 @@
         <a href="/pertanyaan">
         <button type="submit" class="btn btn-primary">Kembali ke data pertanyaan</button>
       </a>
+
+      
       </div>
       <!-- /.card-body -->
     </div>
@@ -69,4 +74,6 @@
     $("#example1").DataTable();
   });
 </script>
+
+
 @endpush

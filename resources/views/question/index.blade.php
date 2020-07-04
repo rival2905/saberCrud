@@ -29,7 +29,11 @@
             <td>{{$data->title}}</td>
             <td>{{$data->question}}</td>
             <td><a href="/jawaban/{{$data->id}}	">Klik Here <i class="fas fa-search"></i> </a></td>
-            <td>X</td>
+            <td>
+              <a href="/pertanyaan/edit/{{$data->id}}	"><button class="btn btn-sm btn-warning"><i class="fas fa-edit"></i></button></a>
+              <a href="/pertanyaan/delete/{{$data->id}}	"><button class="btn btn-sm btn-danger"><i class="fas fa-trash"></i></button></a>
+            </td>
+
           </tr>
           @endforeach
           </tbody>

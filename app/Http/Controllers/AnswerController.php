@@ -22,4 +22,30 @@ class AnswerController extends Controller
             return redirect('/jawaban/'.$id);
         }
     }
+
+    public function edit($id){
+        $data = AnswerModel::get_byIdJawaban($id);
+        
+        return view('answer.edit', compact('data'));
+    }
+    public function update($question_id,$id, Request $request){
+        
+        $data=$request->all();
+        
+        unset($data["_token"]);
+        unset($data["_method"]);
+
+        $update = AnswerModel::update($id,$data);
+        if($update){
+            return redirect('/jawaban/'.$question_id);
+        }
+    }
+
+    public function destroy($question_id,$id)
+    {
+        $save = AnswerModel::destroy($id);
+        if($save){
+            return redirect('/jawaban/'.$question_id);
+        }
+    }
 }

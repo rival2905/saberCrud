@@ -20,4 +20,20 @@ class QuestionModel {
 
         return $new_data;
     }
+
+    public static function update($id, $data){
+        $update = DB::table('questions')
+        ->where('id',$id)
+        ->update($data);
+
+        return $update;
+    }
+
+    public static function destroy($id){
+        $delete = DB::table('questions')
+                        ->where('id',$id)
+                        ->delete();
+
+        return $delete;
+    }
 }
